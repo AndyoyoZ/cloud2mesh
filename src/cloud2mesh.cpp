@@ -131,13 +131,13 @@ int main(int argc, char** argv)
                 // cout<<"dis:"<<dist<<endl;
             }
         }
-        // cloud_color_mesh.points[i].r = int(red/pointIdxNKNSearch.size ()+0.5);
-        // cloud_color_mesh.points[i].g = int(green/pointIdxNKNSearch.size ()+0.5);
-        // cloud_color_mesh.points[i].b = int(blue/pointIdxNKNSearch.size ()+0.5);
+        cloud_color_mesh.points[i].r = int(red/pointIdxNKNSearch.size ()+0.5);
+        cloud_color_mesh.points[i].g = int(green/pointIdxNKNSearch.size ()+0.5);
+        cloud_color_mesh.points[i].b = int(blue/pointIdxNKNSearch.size ()+0.5);
 
-        cloud_color_mesh.points[i].r = 255;
-        cloud_color_mesh.points[i].g = 0;
-        cloud_color_mesh.points[i].b = 0;
+        // cloud_color_mesh.points[i].r = 255;
+        // cloud_color_mesh.points[i].g = 0;
+        // cloud_color_mesh.points[i].b = 0;
     }
     pcl::toPCLPointCloud2(cloud_color_mesh, mesh.cloud);
 
@@ -152,7 +152,7 @@ int main(int argc, char** argv)
 	boost::shared_ptr<pcl::visualization::PCLVisualizer> viewer(new pcl::visualization::PCLVisualizer("3D viewer"));
 	viewer->setBackgroundColor(0, 0, 0);
 	viewer->addPolygonMesh(mesh, "my");
-	viewer->addCoordinateSystem(50.0);
+	viewer->addCoordinateSystem(1.0);
 	viewer->initCameraParameters();
 	while (!viewer->wasStopped()){
 		viewer->spinOnce(100);
